@@ -20,17 +20,23 @@ ActiveRecord::Schema.define(version: 20160506005037) do
     t.datetime "updated_at",             null: false
   end
 
+  add_index "dudes", ["name"], name: "index_dudes_on_name", using: :btree
+
   create_table "movies", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
 
+  add_index "movies", ["name"], name: "index_movies_on_name", using: :btree
+
   create_table "roles", force: :cascade do |t|
     t.string   "name",       limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
   end
+
+  add_index "roles", ["name"], name: "index_roles_on_name", using: :btree
 
   create_table "teams", force: :cascade do |t|
     t.integer  "movie_id",   limit: 4
