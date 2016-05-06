@@ -1,0 +1,25 @@
+<%= form_for([@movie, @team]) do |f| %>
+  <% if @team.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@team.errors.count, "error") %> prohibited this team from being saved:</h2>
+
+      <ul>
+      <% @team.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <%= hidden_field_tag :movie_id, @movie.id %>
+  <div class="field">
+    <%= f.label :dude_id %><br>
+      <%= f.collection_select(:dude_id, @dudes, :id, :name) %>
+  </div>
+  <div class="field">
+      <%= f.label :role_id %><br>
+      <%= f.collection_select(:role_id, @dudes.first.roles_availables(@movie.id), :id, :name) %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

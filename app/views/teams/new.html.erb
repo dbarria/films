@@ -1,0 +1,32 @@
+<h1>Listing Teams</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Movie</th>
+      <th>Dude</th>
+      <th>Role</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @teams.each do |team| %>
+      <tr>
+        <td><%= team.movie.name %></td>
+        <td><%= team.dude.name %></td>
+        <td><%= team.role.name %></td>
+        <td><%= link_to 'Edit', edit_movie_team_path(@movie, team) %></td>
+        <td><%= link_to 'Destroy', movie_team_path(@movie, team), method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+
+<h1>New Team</h1>
+
+
+<%= render 'form' %>
+
+<%= link_to 'Back', movies_path %>

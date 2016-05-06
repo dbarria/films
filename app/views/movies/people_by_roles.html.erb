@@ -1,0 +1,25 @@
+<p id="notice"><%= notice %></p>
+
+<% @roles.each do |role| %>
+  <h1>Listing <%= role.name %></h1>
+
+  <table>
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Birthdate</th>
+        <th colspan="3"></th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% role.get_people_by_movie(@movie.id).each do |person| %>
+        <tr>
+          <td><%= person.name %></td>
+          <td><%= person.birthdate %></td>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>
+<br>
