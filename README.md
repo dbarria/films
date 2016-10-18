@@ -1,4 +1,4 @@
-# films
+# films - Example Rails App 
 
 * bundle install
 * mv config/database.default.yml config/database.yml
